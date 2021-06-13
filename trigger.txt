@@ -1,0 +1,30 @@
+Tính điểm của từng bài viết rồi cập nhật dữ liệu vào từng cột điểm của bài viết tương ứng:
+2 bảng: scores(`score_type`, `user_id`, `post_id`), posts(`post_id`, `score`)
+
+
+========================
+DELIMITER $$
+CREATE TRIGGER update_score
+AFTER INSERT
+ON `scores` for each row
+BEGIN 
+	DECLARE up INT;
+	DECLARE down INT;
+	DECLARE score INT;
+	SET up  = (SELECT COUNT(`user_id`) FROM `scores` WHERE `score_type` = 1 AND `post_id` = new.`post_id`);
+	SET down = (SELECT COUNT(`user_id`) FROM `scores` WHERE `score_type` = -1 AND `post_id` = new.`post_id`);
+	SET score = up - down;
+	UPDATE `posts` SET `score`= score WHERE `post_id` = new.`post_id`;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER test
+AFTER INSERT ON `scores`
+FOR EACH ROW
+BEGIN 
+    SIGNAL SQLSTATE '01000' SET MESSAGE_TEXT ='abc';
+END$$
+DELIMITER ;
+	
