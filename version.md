@@ -49,3 +49,7 @@ vers: 1.5.4:
 - Sửa lỗi phân trang tại quản lý bài đăng/xem bài đăng.
 - Sửa lỗi nhập user_id tại xem bài đăng không tồn tại:
     + Thêm hàm checkValidUserId trong CustomModel.
+
+vers: 1.5.5:
+- Sửa lại route: thân thiện người dùng:
+    - Personal -> profile

@@ -77,7 +77,7 @@
                             <pre wrap="true"><?php echo trim($post[0]->content);?></pre>
                         </div>
                         <div class="post__block__detail">
-                            <label for="">Tác giả: <?php echo "<a href='".base_url('Personal/'.$post[0]->user_id)."'>".$post[0]->username."</a>" ?></label>
+                            <label for="">Tác giả: <?php echo "<a href='".base_url('profile/'.$post[0]->user_id)."'>".$post[0]->username."</a>" ?></label>
                             <label for="">Ngày đăng: <?php echo date("d/m/Y", strtotime($post[0]->first_date)) ?></label>
                             <?php if(strcmp($post[0]->first_date, $post[0]->last_date) != 0 && strcmp($post[0]->last_date, "0000-00-00 00:00:00") != 0): ?>
                                 <?php if($updateTime) ?>
@@ -127,7 +127,7 @@
                                 <div class="comment__block__second__one">
                                     <img src="<?php echo base_url($comments[$i]->avatar)?>" class="img__avatar__52" alt="">
                                     <div>
-                                        <label for=""><?php echo "<a href='".base_url('Personal/'.$comments[$i]->user_id)."'>".$comments[$i]->username."</a>" ?></label>
+                                        <label for=""><?php echo "<a href='".base_url('profile/'.$comments[$i]->user_id)."'>".$comments[$i]->username."</a>" ?></label>
                                         <label for="" class="user_level"><?php echo $comments[$i]->level_name ?></label>
                                     </div>
                                     <label for="">Ngày đăng: <?php echo date( "d/m/Y H:i",strtotime($comments[$i]->cmt_date)) ?></label>

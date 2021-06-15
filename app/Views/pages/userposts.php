@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="personal__leftnavbar__userinfor">
-                    <a href="<?php echo base_url('Personal/'.$user_infor['user_id']) ?>">Thông tin cá nhân</a>
+                    <a href="<?php echo base_url('profile/'.$user_infor['user_id']) ?>">Thông tin cá nhân</a>
                 </div>
                 <div class="personal__leftnavbar__usershare">
                     <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id']) ?>">Xem bài đăng</a>
