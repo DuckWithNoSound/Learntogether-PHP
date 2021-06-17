@@ -57,7 +57,7 @@
                             <pre wrap="true"><?php echo trimContent($allPosts[$i]->content) ?></pre>
                         </div>
                         <div class="share__block__detail">
-                            <label for="">Tác giả: <?php echo "<a href='".base_url('profile/'.$allPosts[$i]->username)."'>".$allPosts[$i]->username."</a>" ?></label>
+                            <label for="">Tác giả: <?php echo "<a class='link__profile' href='".base_url('profile/'.$allPosts[$i]->username)."'>".$allPosts[$i]->username."</a>" ?></label>
                             <label for="">Ngày đăng: <?php echo date("d/m/Y", strtotime($allPosts[$i]->first_date)) ?></label>
                             <label for="">
                             <a href="<?php echo base_url('Discussion/post/'.$allPosts[$i]->post_id) ?>">

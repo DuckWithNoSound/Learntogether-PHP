@@ -29,6 +29,7 @@
     <!-- Preload -->
     <?php 
     if(session()->get('log')) echo session()->get('log');
+    //echo current_url();
     ?>
     <div class="app">
         <div class="page_overlay"></div>

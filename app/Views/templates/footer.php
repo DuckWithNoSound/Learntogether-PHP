@@ -37,7 +37,7 @@
     </div>
     <div class="Footer__Coppyright">
         <p id="coppyright">
-        &copy; <?php echo date("Y"); ?> LearnTogether - vers: 1.5.7
+        &copy; <?php echo date("Y"); ?> LearnTogether - vers: 1.5.8
         </p>
     </div>
 </footer>

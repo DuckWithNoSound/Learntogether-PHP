@@ -86,6 +86,7 @@ class UserFunction extends Controller
                         $this->setUserSession($user);
                         if( $this->request->getPost('anchor') != null ) 
                         {   
+                            //session()->setFlashdata('log', $this->request->getPost('anchor'));
                             if(strcmp($this->request->getPost('anchor'), base_url('index.php/Welcome')) == 0) return redirect()->to(base_url('/Home'));
                             else return redirect()->to($this->request->getPost('anchor'));
                         }

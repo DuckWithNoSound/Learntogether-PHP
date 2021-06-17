@@ -22,6 +22,9 @@ class CustomModel
         $this->db->close();
         return $result;
     }
+    /***
+     * Get number of user's post
+     */
     public function getNumberOfPosts($user_id)
     {
         $this->db = db_connect();
@@ -30,6 +33,9 @@ class CustomModel
         $this->db->close();
         return $result;
     }
+    /***
+     * Get posts to show...
+     */
     public function getPosts(int $CurrentPage = 1, String $OrderBy = 'post_id', int $numbersOfPosts = 10, string $user_id = null)
     {
         $this->db = db_connect();
@@ -57,18 +63,24 @@ class CustomModel
         $this->db->close();
         return $result;
     }
+    /***
+     * Check post exist. Return: true if post exist, false if post non exist
+     */
     public function checkPostId($post_id)
     {
         $post_id = (int)$post_id;
         $this->db = db_connect();
         $builder = $this->db->table('posts');
-        $result = $builder->select('*')
+        $result = $builder->select('post_id')
                         ->where('post_id', $post_id)
                         ->countAllResults(true);
         $this->db->close();
         if($result>0) return true;
         else return false;
     }
+    /***
+     * Get post's data
+     */
     public function getPost(int $post_id)
     {
         $this->db = db_connect();
@@ -96,6 +108,10 @@ class CustomModel
         $this->db->close();
         return $result;
     }
+    /***
+     * Save new post to database
+     * 
+     */
     public function NewPost($post_title, $post_content, $post_tags, $user_id)
     {   
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -130,6 +146,7 @@ class CustomModel
         $this->db->close();
         return $query;
     }
+    
     public function DeletePost($post_id)
     {   
         $this->DeleteCommentsOnPost($post_id);
@@ -157,6 +174,25 @@ class CustomModel
 
 
     // POST SCORE
+    /***
+     * Get number of score by User ID
+     */
+    public function getAllScore($user_id)
+    {
+        $this->db = db_connect();
+        $builder = $this->db->table('posts');
+        $query = $builder->select('score')->where('user_id', $user_id)->get()->getResult();
+        $sum = 0;
+        for($i = 0; $i < count($query); $i++)
+        {
+            $sum += $query[$i]->score;
+        }
+        $this->db->close();
+        return $sum;
+    }
+    /***
+     * Get current user vote
+     */
     public function getUserCurrentScore($post_id, $user_id)
     {
         $this->db = db_connect();

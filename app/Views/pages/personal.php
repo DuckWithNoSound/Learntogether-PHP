@@ -81,6 +81,12 @@
                         <label for="" id="switch1__password" class="change change__password" onclick="js_switch('personal__changepassword__text', 'personal__changepassword__form', 'switch1__password', 'switch2__password')">Thay đổi</label>
                         <label for="" id="switch2__password" class="change change__password" style="display: none;" onclick="js_switch('personal__changepassword__form', 'personal__changepassword__text', 'switch2__password', 'switch1__password')">Thôi</label>
                     </div>
+                    <div class="personal__content__userinfor__blocklast">
+                        <div class="userinfor__blocklast__content">
+                            <label for="">Tổng số bài đăng: <a class='link__profile' href="<?php echo base_url('profile/posts') ?>"><?php echo $numberOfPosts ?></a></label>
+                            <label for="">Tổng điểm: <?php echo $totalScore ?></label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -57,6 +57,12 @@ button{
 .isActive{
     color: var(--hyperlinkColor) !important;
 }
+.link__profile{
+    color: blue;
+}
+.link__profile:hover{
+    text-decoration: underline;
+}
 /*================Keyframe====================*/
 @keyframes opa--start{
     from{
@@ -1505,7 +1511,7 @@ footer{
     border-radius: 50%;
     border: solid 4px var(--grayColor);
 }
-.personal__content__userinfor__block1, .personal__content__userinfor__block2, .personal__content__userinfor__block3{
+.personal__content__userinfor__block1, .personal__content__userinfor__block2, .personal__content__userinfor__block3, .personal__content__userinfor__blocklast{
     padding: 20px;
     border-bottom: solid 1px var(--unseclectableText);
     position: relative;
@@ -1518,7 +1524,7 @@ footer{
     display: flex;
     flex-direction: row;
 }
-.personal__content__userinfor__block1 > label, .personal__content__userinfor__block2 > label, .personal__content__userinfor__block3 > label{
+.personal__content__userinfor__block1 > label, .personal__content__userinfor__block2 > label, .personal__content__userinfor__block3 > label, .personal__content__userinfor__blocklast > label{
     position: absolute;
     bottom: 10px;
     right: 5px;
@@ -1536,7 +1542,7 @@ footer{
     font-size: 1.7rem;
     color: var(--unseclectableText);
 }
-#personal__changeinfor__text{
+#personal__changeinfor__text, .userinfor__blocklast__content{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

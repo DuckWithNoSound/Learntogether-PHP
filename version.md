@@ -63,3 +63,6 @@ vers: 1.5.7:
 - Cải thiện trải nghiệm người dùng:
     - Login và logout.
     - Register xong tự động login.
+
+vers: 1.5.8:
+- Thêm thông tin tổng số bài đăng và tổng điểm tại phần trang cá nhân.

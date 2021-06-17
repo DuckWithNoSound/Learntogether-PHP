@@ -10,14 +10,16 @@ class Personal extends Controller
     {
         $data = [];
         helper(['form']);
+        $model = new CustomModel;
         if($user != null)
         {   
             if(strcmp($user, session()->get('username')) == 0)
             {
                 return redirect()->to(base_url('profile'));
             }
-            $model = new CustomModel;
             $user_infor = $model->getUserInfor($user);
+            $data['numberOfPosts'] = $model->getNumberOfPosts($user_infor['user_id']);
+            $data['totalScore'] = $model->getAllScore($user_infor['user_id']);
             if($user_infor != false)
             {
                 $data['user_infor'] = $user_infor;
@@ -28,6 +30,8 @@ class Personal extends Controller
             } 
         } else
         {
+            $data['numberOfPosts'] = $model->getNumberOfPosts(session()->get('user_id'));
+            $data['totalScore'] = $model->getAllScore(session()->get('user_id'));
             echo viewLayout('personal', $data);
         }
     }
