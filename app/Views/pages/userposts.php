@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div class="personal__leftnavbar__userinfor">
-                    <a href="<?php echo base_url('profile/'.$user_infor['user_id']) ?>">Thông tin cá nhân</a>
+                    <a href="<?php echo base_url('profile/'.$user_infor['username']) ?>">Thông tin cá nhân</a>
                 </div>
                 <div class="personal__leftnavbar__usershare">
-                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id']) ?>">Xem bài đăng</a>
+                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts') ?>">Xem bài đăng</a>
                 </div>
             </div>
             <div class="personal__content">
@@ -71,33 +71,33 @@
                         <?php endfor ?>
                         <h2 style="<?php if($numsPost < 1) echo 'display: block; text-align: center; color: var(--unseclectableText)'; else echo 'display: none'; ?>" >(Hiện chưa có bài viết nào !!!)</h2>
                         <div class="discussion__pagination" style=" <?php if($numsPost < 1) echo 'display: none';?>">
-                            <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/1') ?>">&#60&#60</a>
-                            <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage > 1 ? $currentPage-1 : $currentPage = 1)) ?>">&#60</a>
+                            <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/1') ?>">&#60&#60</a>
+                            <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage > 1 ? $currentPage-1 : $currentPage = 1)) ?>">&#60</a>
                             <?php if($numberOfPages >= 5): ?>
                                 <?php if($currentPage <= 3): ?>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/1') ?>">1</a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/2') ?>">2</a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/3') ?>">3</a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/4') ?>">4</a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/5') ?>">5</a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/1') ?>">1</a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/2') ?>">2</a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/3') ?>">3</a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/4') ?>">4</a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/5') ?>">5</a>
                                 <?php else: ?>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage-2)) ?>"><?php echo ($currentPage-2) ?></a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage-1)) ?>"><?php echo ($currentPage-1) ?></a>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage)) ?>" id="<?php echo 'pagination--activated' ?>"><?php echo ($currentPage) ?></a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage-2)) ?>"><?php echo ($currentPage-2) ?></a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage-1)) ?>"><?php echo ($currentPage-1) ?></a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage)) ?>" id="<?php echo 'pagination--activated' ?>"><?php echo ($currentPage) ?></a>
                                     <?php if($currentPage+1 < $numberOfPages): ?>
-                                        <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage+1)) ?>"><?php echo ($currentPage+1) ?></a>
+                                        <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage+1)) ?>"><?php echo ($currentPage+1) ?></a>
                                     <?php endif ?>
                                     <?php if($currentPage+2 < $numberOfPages): ?>
-                                        <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage+2)) ?>"><?php echo ($currentPage+2) ?></a>
+                                        <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage+2)) ?>"><?php echo ($currentPage+2) ?></a>
                                     <?php endif ?>
                                 <?php endif ?>
                             <?php else: ?>
                                 <?php for($i = 1; $i <= $numberOfPages; $i++): ?>
-                                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.$i) ?>" id="<?php if($i == $currentPage) echo 'pagination--activated' ?>"><?php echo $i ?></a>
+                                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.$i) ?>" id="<?php if($i == $currentPage) echo 'pagination--activated' ?>"><?php echo $i ?></a>
                                 <?php endfor ?>
                             <?php endif ?>
-                            <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.($currentPage < $numberOfPages ? $currentPage+1 : $currentPage = $numberOfPages)) ?>">&#62</a>
-                            <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id'].'/'.$numberOfPages) ?>">&#62&#62</a>
+                            <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.($currentPage < $numberOfPages ? $currentPage+1 : $currentPage = $numberOfPages)) ?>">&#62</a>
+                            <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts/'.$numberOfPages) ?>">&#62&#62</a>
                         </div>
                     </div>
                 </div>
