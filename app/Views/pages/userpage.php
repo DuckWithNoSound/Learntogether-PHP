@@ -13,7 +13,7 @@
                     <a href="">Thông tin cá nhân</a>
                 </div>
                 <div class="personal__leftnavbar__usershare">
-                    <a href="<?php echo base_url('Personal/UserPosts/'.$user_infor['user_id']) ?>">Xem bài đăng</a>
+                    <a href="<?php echo base_url('profile/'.$user_infor['username'].'/posts') ?>">Xem bài đăng</a>
                 </div>
             </div>
             <div class="personal__content">

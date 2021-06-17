@@ -430,15 +430,21 @@ class CustomModel
 
 
     //  USER
-    public function checkValidUserId($user_id)
+    /***
+     * Check exist user by username or user id
+     */
+    public function checkValidUser($user)
     {
         $this->db = db_connect();
         $builder = $this->db->table('users');
-        $query = $builder->select('user_id')->where('user_id', $user_id)->countAllResults();
+        $query = $builder->select('user_id')->where("user_id='".$user."' OR username='".$user."'")->countAllResults();
         $this->db->close();
         if($query > 0) return true;
         else return false;
     }
+    /***
+     * Get user's information by username or user id
+     */
     public function getUserInfor($user)
     {
         $this->db = db_connect();

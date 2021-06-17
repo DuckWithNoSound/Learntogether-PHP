@@ -66,3 +66,6 @@ vers: 1.5.7:
 
 vers: 1.5.8:
 - Thêm thông tin tổng số bài đăng và tổng điểm tại phần trang cá nhân.
+- Cải thiện trải nghiệm người dùng:
+    - URL: Personal/MyPosts -> profile/posts
+    - URL: Personal/UserPosts -> profile/(username)/posts 

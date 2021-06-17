@@ -79,7 +79,7 @@
                             </a>
                             <div class="Personal-hover">
                                 <div class="arrow"></div>
-                                <a href=" <?php echo base_url('Personal')?>">Trang cá nhân</a>
+                                <a href=" <?php echo base_url('profile')?>">Trang cá nhân</a>
                                 <?php if(session()->get('level_id')<4): ?>
                                     <a href="http://localhost/admin_learntogether">Trang quản trị</a>
                                 <?php endif ?>

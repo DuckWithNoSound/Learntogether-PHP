@@ -54,28 +54,27 @@ class Personal extends Controller
         helper(['form']);
         echo viewLayout('myposts', $data);
     }
-    public function UserPosts($user_id = null, $page = 1)
+    public function UserPosts($user = null, $page = 1)
     {
         $page = (int)$page;
         $model = new CustomModel;
-        if(!$model->checkValidUserId($user_id) || $user_id == null)
+        if(!$model->checkValidUser($user) || $user == null)
         {   
             return redirect()->to(base_url('/Notfound'));
         }
-        $user_infor = $model->getUserInfor($user_id);
+        $user_infor = $model->getUserInfor($user);
         $data['user_infor'] = $user_infor;
-        $allPosts = $model->getPosts($page, 'post_id', 10, $user_id);
+        $allPosts = $model->getPosts($page, 'post_id', 10, $user_infor['user_id']);
         for($index = 0; $index < count($allPosts); $index++)
         {
             $allPosts[$index]->currentVote = $model->getUserCurrentScore($allPosts[$index]->post_id, session()->get('user_id'));
         }
-        $numberOfPages = $model->getNumberOfPages($user_id);
-        $numberOfPosts = $model->getNumberOfPosts($user_id);
+        $numberOfPages = $model->getNumberOfPages($user_infor['user_id']);
+        $numberOfPosts = $model->getNumberOfPosts($user_infor['user_id']);
         $data['numberOfPosts'] = $numberOfPosts;
         $data['allPosts'] = $allPosts;
         $data['numberOfPages'] = $numberOfPages;
         $data['currentPage'] = $page;
-        $data['user_id'] = $user_id;
         helper(['form']);
         echo viewLayout('userposts', $data);
     }

@@ -37,8 +37,11 @@ $routes->get('/', 'Home::index', ['filter' => 'auth']);
 $routes->get('/Personal', 'Personal::index', ['filter' => 'auth']);
 $routes->get('/profile', 'Personal::index', ['filter' => 'auth']);
 $routes->get('/Personal/MyPosts', 'Personal::MyPosts', ['filter' => 'auth']);
-$routes->get('/profile/posts', 'Personal::MyPosts', ['filter' => 'auth']);
-$routes->get('/profile/posts', 'Personal::UserPosts');
+
+$routes->get('/profile/posts/(:num)', 'Personal::MyPosts', ['filter' => 'auth']);
+$routes->get('/profile/posts/', 'Personal::MyPosts', ['filter' => 'auth']);
+
+$routes->get('/profile/(:any)/posts', 'Personal::UserPosts/$1');
 $routes->get('/Personal/(:num)', 'Personal::index/$1');
 $routes->get('/profile/(:any)', 'Personal::index/$1');
 $routes->get('/Discussion/(:num)', 'Discussion::index/$1/$2');
