@@ -42,6 +42,8 @@ $routes->get('/Personal/(:num)', 'Personal::index/$1');
 $routes->get('/profile/(:num)', 'Personal::index/$1');
 $routes->get('/Discussion/(:num)', 'Discussion::index/$1/$2');
 $routes->get('/Discussion/NewPost', 'Discussion::NewPost', ['filter' => 'auth']);
+$routes->get('/FileSharing/(:num)', 'FileSharing::index/$1/$2');
+$routes->get('/FileSharing/new', 'FileSharing::new', ['filter' => 'auth']);
 $routes->get('logOut', 'UserFunction::logOut');
 $routes->match(['get', 'post'],'register', 'UserFunction::register');
 $routes->match(['get', 'post'],'login', 'UserFunction::login');

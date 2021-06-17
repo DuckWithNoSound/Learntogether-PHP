@@ -1938,3 +1938,33 @@ footer{
 }
 
 /*==============MY POST END==============*/
+
+/*==============FILE SHARING=============*/
+.filesharing_content{
+    margin: 0;
+}
+.file_show{
+    padding: 15px 10px;
+    margin: 5px 0;
+    background-color: var(--grayColor);
+    border-radius: 4px;
+}
+.file_show i{
+    font-size: 2.2rem;
+}
+.file_a:hover{
+    text-decoration: none !important;
+}
+.file_show_file{
+    padding: 15px 20px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grayColor);
+    border-radius: 4px;
+}
+/*=============FILE SHARING END=========*/
