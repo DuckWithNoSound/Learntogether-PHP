@@ -125,7 +125,7 @@ class Discussion extends Controller
                 $data['post'] = $post;
             } else
             {
-                return redirect()->to('/Discussion');
+                return redirect()->to(base_url('/Discussion'));
             }
         }
         return viewLayout('newpost_writing', $data);
@@ -175,11 +175,11 @@ class Discussion extends Controller
             {   
                 $model->DeletePost($post_id);
                 session()->setFlashData('success', 'Xóa bài thành công !');
-                return redirect()->to('/Discussion');
+                return redirect()->to(base_url('/Discussion'));
             } else
             {   
                 session()->setFlashData('error', 'Xóa bài thất bại !');
-                return redirect()->to('/Discussion');
+                return redirect()->to(base_url('/Discussion'));
             }
         }
         return $this->index();

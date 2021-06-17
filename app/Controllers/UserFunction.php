@@ -99,7 +99,7 @@ class UserFunction extends Controller
     public function logOut()
     {
         session()->destroy();
-        if(strcmp(previous_url(), base_url('Home'))) return redirect()->to('/');
+        if(strcmp(previous_url(), base_url('Home'))) return redirect()->to(base_url('/Welcome'));
         else return redirect()->to(previous_url());
     }
 
@@ -125,13 +125,13 @@ class UserFunction extends Controller
                 if(preg_match('/[^A-z0-9\*\$\@\#\&\^\!\+\-\/\=]$/', $quote))
                 {
                     session()->setFlashdata('failed', 'Nội dung không hợp lệ !');
-                    return redirect()->to('Personal');
+                    return redirect()->to(base_url('Personal'));
                 }
                 $user['user_quote'] = $quote;
                 $model->save($user);
                 session()->setFlashdata('success_changequote', 'Thành công !');
                 $this->refreshUser($model);
-                return redirect()->to('Personal');
+                return redirect()->to(base_url('Personal'));
             }
         }
         echo viewLayout('personal', $data);
@@ -149,7 +149,7 @@ class UserFunction extends Controller
                 if(preg_match('/[^a-zA-Z]$/' ,$fullname))
                 {
                     session()->setFlashdata('failed', 'Tên không hợp lệ !');
-                    return redirect()->to('Personal');
+                    return redirect()->to(base_url('Personal'));
                 }
                 $user['fullname'] = $fullname;
             } 
@@ -159,14 +159,14 @@ class UserFunction extends Controller
                 if(preg_match('/[^0-9]$/' ,$phonenumber))
                 {
                     session()->setFlashdata('failed', 'Số điện thoại không hợp lệ !');
-                    return redirect()->to('Personal');
+                    return redirect()->to(base_url('Personal'));
                 }
                 $user['phone_number'] = $phonenumber;
             }
             $model->save($user);
             session()->setFlashdata('success_changequote', 'Thành công !');
             $this->refreshUser($model);
-            return redirect()->to('Personal');
+            return redirect()->to(base_url('Personal'));
         }
         echo viewLayout('personal', $data);
     }
@@ -195,7 +195,7 @@ class UserFunction extends Controller
                     $model->save($user);
                     session()->setFlashdata('success_changequote', 'Thành công !');
                     $this->refreshUser($model);
-                    return redirect()->to('Personal');
+                    return redirect()->to(base_url('Personal'));
                 } else {
                     session()->setFlashdata('fail_password', 'Mật khẩu hiện tại không khớp !');
                 }
@@ -230,7 +230,7 @@ class UserFunction extends Controller
                     $model->save($user);
                     session()->setFlashdata('success_changequote', 'Thành công !');
                     $this->refreshUser($model);
-                    return redirect()->to('Personal');
+                    return redirect()->to(base_url('Personal'));
                 } else {
                     session()->setFlashdata('fail_file', 'Tệp không hợp lệ !');
                 }

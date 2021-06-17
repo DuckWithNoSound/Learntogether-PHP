@@ -56,7 +56,7 @@ class Personal extends Controller
         $model = new CustomModel;
         if(!$model->checkValidUserId($user_id) || $user_id == null)
         {   
-            return redirect()->to('/Notfound');
+            return redirect()->to(base_url('/Notfound'));
         }
         $user_infor = $model->getUserInfor($user_id);
         $data['user_infor'] = $user_infor;
