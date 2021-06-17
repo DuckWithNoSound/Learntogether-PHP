@@ -403,13 +403,13 @@ class CustomModel
         if($query > 0) return true;
         else return false;
     }
-    public function getUserInfor(int $user_id)
+    public function getUserInfor($user)
     {
         $this->db = db_connect();
         $builder = $this->db->table('users');
         $query = $builder->select('*')
                             ->join('levels', 'levels.level_id=users.level_id', 'inner')
-                            ->where('user_id', $user_id)
+                            ->where("user_id='".$user."' OR username='".$user."'")
                             ->get()
                             ->getResult();
         $this->db->close();

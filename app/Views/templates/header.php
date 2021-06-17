@@ -27,8 +27,8 @@
 </head>
 <body>
     <!-- Preload -->
-    <?php  
-    //echo site_url() .'<br>'. base_url();
+    <?php 
+    if(session()->get('log')) echo session()->get('log');
     ?>
     <div class="app">
         <div class="page_overlay"></div>

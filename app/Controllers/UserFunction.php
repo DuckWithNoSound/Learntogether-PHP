@@ -47,7 +47,9 @@ class UserFunction extends Controller
                 $model->save($newData);
                 $session = \Config\Services::session();
                 $session->setFlashdata('success_register', 'Đăng ký thành công !');
-                return redirect()->to('welcome');
+                $user = $model->where('username', $this->request->getVar('username'))->first();
+                $this->setUserSession($user);
+                return redirect()->to(base_url('/Home'));
             }
         }
         echo viewLayout('welcome', $data);
@@ -55,7 +57,7 @@ class UserFunction extends Controller
 
     public function login()
     {   
-        //echo "<script type=text/javascript> alert('".previous_url()."') </script>";
+        
         $data = [];
         helper(['form']);
         if ($this->request->getMethod() == 'post') {
@@ -82,8 +84,12 @@ class UserFunction extends Controller
                         $session = \Config\Services::session();
                         $session->setFlashdata('success_login', 'Đăng nhập thành công !');
                         $this->setUserSession($user);
-                        if(($this->request->getPost('anchor') != null && $this->request->getPost('anchor') != base_url('Welcome'))) return redirect()->to($this->request->getPost('anchor'));
-                        return redirect()->to('Home');
+                        if( $this->request->getPost('anchor') != null ) 
+                        {   
+                            if(strcmp($this->request->getPost('anchor'), base_url('index.php/Welcome')) == 0) return redirect()->to(base_url('/Home'));
+                            else return redirect()->to($this->request->getPost('anchor'));
+                        }
+                        return redirect()->to(base_url('/Home'));
                     }
                 }
             }
@@ -93,7 +99,8 @@ class UserFunction extends Controller
     public function logOut()
     {
         session()->destroy();
-        return redirect()->to(previous_url());
+        if(strcmp(previous_url(), base_url('Home'))) return redirect()->to('/');
+        else return redirect()->to(previous_url());
     }
 
     public function changeQuote()

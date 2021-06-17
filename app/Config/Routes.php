@@ -35,11 +35,12 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
 $routes->get('/Personal', 'Personal::index', ['filter' => 'auth']);
+$routes->get('/profile', 'Personal::index', ['filter' => 'auth']);
 $routes->get('/Personal/MyPosts', 'Personal::MyPosts', ['filter' => 'auth']);
 $routes->get('/profile/posts', 'Personal::MyPosts', ['filter' => 'auth']);
 $routes->get('/profile/posts', 'Personal::UserPosts');
 $routes->get('/Personal/(:num)', 'Personal::index/$1');
-$routes->get('/profile/(:num)', 'Personal::index/$1');
+$routes->get('/profile/(:any)', 'Personal::index/$1');
 $routes->get('/Discussion/(:num)', 'Discussion::index/$1/$2');
 $routes->get('/Discussion/NewPost', 'Discussion::NewPost', ['filter' => 'auth']);
 $routes->get('/FileSharing/(:num)', 'FileSharing::index/$1/$2');
@@ -57,7 +58,6 @@ $routes->match(['get', 'post'],'Discussion/new_comment', 'Discussion::new_commen
 $routes->match(['get', 'post'],'(:any)/(:any)/login', 'UserFunction::login'); 
 $routes->match(['get', 'post'],'(:any)/login', 'UserFunction::login'); 
 $routes->match(['get', 'post'],'(:any)/(:any)/home', 'Home::index');
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -53,3 +53,13 @@ vers: 1.5.4:
 vers: 1.5.5:
 - Sửa lại route: thân thiện người dùng:
     - Personal -> profile
+#Update filesharing
+
+vers: 1.5.6:
+- Cải thiện URI thân thiện:
+    - profile/id -> profile/id hoặc profile/username.
+
+vers: 1.5.7: 
+- Cải thiện trải nghiệm người dùng:
+    - Login và logout.
+    - Register xong tự động login.

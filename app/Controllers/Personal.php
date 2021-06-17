@@ -6,21 +6,25 @@ use App\Models\CustomModel;
 
 class Personal extends Controller
 {
-    public function index($userid=null)
+    public function index($user=null)
     {
         $data = [];
         helper(['form']);
-        if($userid != null)
+        if($user != null)
         {   
+            if(strcmp($user, session()->get('username')) == 0)
+            {
+                return redirect()->to(base_url('profile'));
+            }
             $model = new CustomModel;
-            $user_infor = $model->getUserInfor($userid);
+            $user_infor = $model->getUserInfor($user);
             if($user_infor != false)
             {
                 $data['user_infor'] = $user_infor;
                 echo viewLayout('userpage', $data);
             } else
             {   
-                return redirect()->route('/');
+                return redirect()->route('profile');
             } 
         } else
         {
