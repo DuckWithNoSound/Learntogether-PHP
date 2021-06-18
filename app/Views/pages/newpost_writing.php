@@ -32,12 +32,12 @@
                     <label for="">Nội dung<i class="fas fa-asterisk asterisk--rule"></i></label>
                     <div class="textarea">
                         <div class="textarea__buttons">
-                            <button title="Strong text" onclick="getBolderFormat()"><i class="fas fa-bold"></i></button>
-                            <button title="Italic text"><i class="fas fa-italic"></i></button>
-                            <button title="Hyper link"><i class="fas fa-link"></i></button>
-                            <button title="High light text"><i class="fas fa-code"></i></button>
-                            <button title="Quote"><i class="fas fa-quote-right"></i></button>
-                            <button title="Image"><i class="far fa-image"></i></button>
+                            <button title="Strong text" onclick="notAvaibleFunction()"><i class="fas fa-bold"></i></button>
+                            <button title="Italic text" onclick="notAvaibleFunction()"><i class="fas fa-italic"></i></button>
+                            <button title="Hyper link" onclick="notAvaibleFunction()"><i class="fas fa-link"></i></button>
+                            <button title="High light text" onclick="notAvaibleFunction()"><i class="fas fa-code"></i></button>
+                            <button title="Quote" onclick="notAvaibleFunction()"><i class="fas fa-quote-right"></i></button>
+                            <button title="Image" onclick="notAvaibleFunction()"><i class="far fa-image"></i></button>
                             <div></div>
                         </div>
                         <textarea form="question_form" name="content" id="question_textaria" placeholder="Nội dung (nên dùng chức năng trên thanh chức năng (phía trên) để định dạng văn bản)."><?php echo $post_content ?></textarea>
