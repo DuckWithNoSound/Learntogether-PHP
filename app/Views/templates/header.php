@@ -44,7 +44,7 @@
                     <input type="hidden" name="anchor" value="<?php echo current_url();?>">
                     <button type="submit" name="logIn">Đăng nhập</button>
                     <div class="zxz">
-                        <a href="#">Quên mật khẩu?</a>
+                        <a style="cursor: pointer;" onclick="return forgotPassword()">Quên mật khẩu?</a>
                     </div>
                 </form>
                 <p>Chưa có tài khoản? <a href="<?php echo base_url('Welcome')?>">Đăng ký ngay</a></p>
@@ -101,9 +101,9 @@
                         <?php endif ?>
                     </div>
                     <div class="Nav_Search">
-                        <form method="GET" action="#" onsubmit="return errorForm()">
+                        <form method="GET" action="#">
                             <input type="text" placeholder="Bạn muốn tìm kiếm gì ?" id="Text">
-                            <a href="" id="Button"><i class="fas fa-search"></i></a>
+                            <a onclick="notAvaibleFunction()" id="Button"><i class="fas fa-search"></i></a>
                         </form>
                     </div>
                 </div>

@@ -123,7 +123,10 @@ function dropdownFunction()
   document.getElementById('Dropdown-content__postblock').classList.toggle('show__dropdown');
   document.getElementById('Arrow-up').classList.toggle('show__dropdown');
 }
-
+function forgotPassword()
+{
+  alert('Có cái mật khẩu cũng quên là dở rồi -_-');
+}
 window.addEventListener("click", function(e){
   if(document.getElementById('Dropdown-content__postblock') != null && document.querySelector('.post__block__content__more') != null)
   {
